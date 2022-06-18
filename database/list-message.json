@@ -1,0 +1,30 @@
+[
+  {
+    "jid": "120363022958194164@g.us",
+    "cmd": [
+      {
+        "menu": "na",
+        "harga": "baiklah Redy 100"
+      },
+      {
+        "menu": "naa",
+        "harga": "baiklah okhhh aghh"
+      }
+    ],
+    "sections": [
+      {
+        "title": "RYZUBOTZ-OFFICIAL",
+        "rows": [
+          {
+            "title": "na",
+            "rowId": "na"
+          },
+          {
+            "title": "naa",
+            "rowId": "naa"
+          }
+        ]
+      }
+    ]
+  }
+]
