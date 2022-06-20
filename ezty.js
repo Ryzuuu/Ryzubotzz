@@ -384,7 +384,7 @@ if (m.key.fromMe) return
 if (isCreator) return 
 kice = m.sender
 await ezty.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-ezty.sendMessage(from, {text:`\`\`\`「 DETECT LINK 」\`\`\`\n\n@${kice.split("@")[0]} Telah dikick karena send link di group ini`, contextInfo:{mentionedJid:[kice]}}, { quoted: troli })
+ezty.sendMessage(from, {text:`\`\`\`「 DETECT LINK 」\`\`\`\n\n@${kice.split("@")[0]} Telah dikick karena send link di group ini`, contextInfo:{mentionedJid:[kice]}}, { quoted: m })
 } else {
 }
 }
@@ -1400,18 +1400,18 @@ case prefix+'autorevoke': {
 if (!m.isGroup) return fezy(mess.group)
 if (!isBotAdmins) return fezy(mess.botAdmin)
 if (!isAdmins && !isCreator) return fezy(mess.admin)
-if (args.length < 1) return fezy('Ketik On Untuk Mengaktifkan\nKetik Off Untuk Menonaktifkan')
-if (args[0] === "on") {
+if (args.length < 1) return fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
+if (args[0] === "enable") {
 if (GcRvk) return fezy('Sudah Aktif')
 gcrevoke.push(from)
-fezy('Succes Menyalakan Autorevoke Di Group Ini')
-} else if (args[0] === "off") {
+fezy('Succes menyalakan autorevoke di group ini')
+} else if (args[0] === "disable") {
 if (!GcRvk) return fezy('Sudah Mati')
 let off = wlcm.indexOf(from)
 gcrevoke.splice(off, 1)
-fezy('Succes Mematikan Autorevoke Di Group Ini')
+fezy('Succes mematikan autorevoke di group ini')
 } else {
-fezy('Ketik On Untuk Mengaktifkan\nKetik Off Untuk Menonaktifkan')
+fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
 }
 }
 break
@@ -1419,7 +1419,7 @@ case prefix+'antilink': {
 if (!m.isGroup) return fezy(mess.group)
 if (!isBotAdmins) return fezy(mess.botAdmin)
 if (!isAdmins && !isCreator) return fezy(mess.admin)
-if (args.length < 1) return fezy('Ketik ${command} enable untuk mengaktifkan\nKetik ${command} disable untuk menonaktifkan')
+if (args.length < 1) return fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
 if (args[0] === "enable") {
 if (AntiLink) return fezy('Sudah Aktif')
 ntilink.push(from)
@@ -1437,7 +1437,7 @@ let off = ntilink.indexOf(from)
 ntilink.splice(off, 1)
 fezy('Succes mematikan antilink di group ini')
 } else {
-fezy('Ketik ${command} enable untuk mengaktifkan\nKetik ${command} disable untuk menonaktifkan')
+fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
 }
 }
 break
@@ -1461,7 +1461,7 @@ break
                 db.chats[m.chat].mute = false
                 fezy(`${ezty.user.name} telah di unmute di group ini !`)
                 } else {
-                 fezy('Ketik ${command} enable untuk mengaktifkan\nKetik ${command} disable untuk menonaktifkan')
+                 fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
                 }
              }
              break
@@ -1505,7 +1505,7 @@ break
                     fs.writeFileSync('./database/welcome.json', JSON.stringify(welcome, null, 2))
                     fezy('Sukses menonaktifkan welcome di grup ini')
                 } else {
-                    fezy('Ketik ${command} enable untuk mengaktifkan\nKetik ${command} disable untuk menonaktifkan')
+                    fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
                 }
                 break
             case prefix+'left':
@@ -1521,7 +1521,7 @@ break
                     var posi = left.indexOf(from)
                     left.splice(posi, 1)
                     fs.writeFileSync('./database/left.json', JSON.stringify(left, null, 2))
-                    fezy('Ketik ${command} enable untuk mengaktifkan\nKetik ${command} disable untuk menonaktifkan')
+                    fezy('Ketik enable untuk mengaktifkan\nKetik disable untuk menonaktifkan')
                 } else {
                     fezy(`Pilih enable atau disable`)
                 }
